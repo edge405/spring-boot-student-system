@@ -2,7 +2,7 @@ package com.edjayCodes.studentSystem.model;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "students")
 public class Student {
 
     @Id
@@ -13,6 +13,16 @@ public class Student {
     private String name;
     @Column
     private String address;
+    @Column
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Student(){
     }

@@ -1,5 +1,7 @@
 package com.edjayCodes.studentSystem.controller;
 
+import com.edjayCodes.studentSystem.DTOmapper.DTOmapper;
+import com.edjayCodes.studentSystem.dto.StudentDTO;
 import com.edjayCodes.studentSystem.model.Student;
 import com.edjayCodes.studentSystem.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +22,13 @@ public class StudentController {
         return studentService.saveStudent(student);
     }
 
+    @GetMapping("{studentID}")
+    public StudentDTO getStudentByID(@PathVariable int studentID){
+        return studentService.getStudentByID(studentID);
+    }
     @GetMapping("/getAllStudents")
-    public List<Student> getStudent(){
-        return studentService.getStudent();
+    public List<StudentDTO> getStudent(){
+        return studentService.getStudents();
     }
 
     @PutMapping("{studentId}")
